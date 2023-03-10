@@ -5,6 +5,11 @@
 		<vocation name="Sorcerer" />
 	</instant>
 
+	<instant group="attack" spellid="80" name="Dash" words="dash" level="1" mana="1" premium="0" needweapon="0" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/q6.lua">
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" />
+	</instant>
+
 	<instant group="attack" spellid="62" name="Annihilation" words="exori gran ico" level="110" mana="300" premium="1" range="1" needtarget="1" needweapon="1" cooldown="30000" groupcooldown="4000" needlearn="0" script="attack/annihilation.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
