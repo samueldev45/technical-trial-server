@@ -2336,6 +2336,8 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Creature", "getZone", LuaScriptInterface::luaCreatureGetZone);
 
+	registerMethod("Creature", "setShader", LuaScriptInterface::luaCreatureSetShader);
+
 	// Player
 	registerClass("Player", "Creature", LuaScriptInterface::luaPlayerCreate);
 	registerMetaMethod("Player", "__eq", LuaScriptInterface::luaUserdataCompare);
@@ -8126,6 +8128,22 @@ int LuaScriptInterface::luaCreatureGetZone(lua_State* L)
 	if (creature) {
 		lua_pushnumber(L, creature->getZone());
 	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaCreatureSetShader(lua_State* L)
+{
+	// creature:setShader(shader)
+	Creature* creature = getUserdata<Creature>(L, 1);
+	std::string shader = getString(L, 2);
+
+	if (creature) {
+		g_game.setCreatureShader(creature, shader);
+		lua_pushboolean(L, true);
+	}
+	else {
 		lua_pushnil(L);
 	}
 	return 1;

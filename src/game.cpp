@@ -4433,6 +4433,22 @@ void Game::addDistanceEffect(const SpectatorVec& spectators, const Position& fro
 	}
 }
 
+void Game::setCreatureShader(const Creature* target, const std::string& shader)
+{
+	SpectatorVec spectators;
+	map.getSpectators(spectators, target->getPosition(), true, true);
+	setCreatureShader(spectators, target, shader);
+}
+
+void Game::setCreatureShader(const SpectatorVec& spectators, const Creature* target, const std::string& shader)
+{
+	for (Creature* spectator : spectators) {
+		if (Player* tmpPlayer = spectator->getPlayer()) {
+			tmpPlayer->sendCreatureShader(target, shader);
+		}
+	}
+}
+
 void Game::setAccountStorageValue(const uint32_t accountId, const uint32_t key, const int32_t value)
 {
 	if (value == -1) {

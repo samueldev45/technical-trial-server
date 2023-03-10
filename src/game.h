@@ -440,6 +440,9 @@ class Game
 		void addDistanceEffect(const Position& fromPos, const Position& toPos, uint8_t effect);
 		static void addDistanceEffect(const SpectatorVec& spectators, const Position& fromPos, const Position& toPos, uint8_t effect);
 
+		void setCreatureShader(const Creature* target, const std::string& shader);
+		static void setCreatureShader(const SpectatorVec& spectators, const Creature* target, const std::string& shader);
+
 		void setAccountStorageValue(const uint32_t accountId, const uint32_t key, const int32_t value);
 		int32_t getAccountStorageValue(const uint32_t accountId, const uint32_t key) const;
 		void loadAccountStorageValues();

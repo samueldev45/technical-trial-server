@@ -936,6 +936,11 @@ class Player final : public Creature, public Cylinder
 				client->sendMagicEffect(pos, type);
 			}
 		}
+		void sendCreatureShader(const Creature* creature, const std::string& shader) {
+			if (client) {
+				client->sendCreatureShader(creature, shader);
+			}
+		}
 		void sendPing();
 		void sendPingBack() const {
 			if (client) {

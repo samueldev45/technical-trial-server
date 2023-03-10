@@ -163,6 +163,7 @@ class ProtocolGame final : public Protocol
 
 		void sendDistanceShoot(const Position& from, const Position& to, uint8_t type);
 		void sendMagicEffect(const Position& pos, uint8_t type);
+		void sendCreatureShader(const Creature* creature, const std::string& shader);
 		void sendCreatureHealth(const Creature* creature);
 		void sendSkills();
 		void sendPing();

@@ -2336,6 +2336,15 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendCreatureShader(const Creature* creature, const std::string& shader)
+{
+	NetworkMessage msg;
+	msg.addByte(0x35);
+	msg.add<uint32_t>(creature->getID());
+	msg.addString(shader);
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
 	NetworkMessage msg;
